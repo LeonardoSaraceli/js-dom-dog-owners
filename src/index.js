@@ -94,6 +94,34 @@ dogAddList.addEventListener('click', () => {
         const newDog = document.createElement('li')
         newDog.classList.add('dogs-list__button')
 
+        newDog.addEventListener('click', () => {
+            mainList.innerHTML = ''
+
+            const newDogCard = document.createElement('section')
+            newDogCard.classList.add('main__dog-section')
+            mainList.append(newDogCard)
+    
+            const newH2 = document.createElement('h2')
+            newH2.innerText = formInputText.value
+            newDogCard.append(newH2)
+    
+            const newImage = document.createElement('img')
+            newImage.setAttribute('src', formInputImage.value)
+            newDogCard.append(newImage)
+    
+            const newdivDogCard = document.createElement('div')
+            newdivDogCard.classList.add('main__dog-section__desc')
+            newDogCard.append(newdivDogCard)
+    
+            const newH3Bio = document.createElement('h3')
+            newH3Bio.innerText = 'Bio'
+            newdivDogCard.append(newH3Bio)
+    
+            const newBio = document.createElement('p')
+            newBio.innerText = formTextAreaBio.value
+            newdivDogCard.append(newBio)
+        })
+        
         newDog.innerText = document.querySelector('#name').value
         dogsList.append(newDog)
     })
